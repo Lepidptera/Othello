@@ -45,21 +45,22 @@ class Othello(Status):
         vectors = [upper,upper_right,right,bottom_right,bottom,bottom_left,left,upper_left]
 
         place_check = False
-        for vector in vectors:
-            turnover = []
-            for cnt in range(7):
-                # the case of the other color
-                if rows[row_num + vector[0] * (cnt+1)][column_num + vector[1] * (cnt+1)] == other_color:
-                    turnover.append(cnt)
-                # the case of the color
-                elif rows[row_num + vector[0] * (cnt+1)][column_num + vector[1] * (cnt+1)] == color:
-                    if turnover != []:
-                        for turnover_cnt in turnover:
-                            rows[row_num + vector[0] * (turnover_cnt+1)][column_num + vector[1] * (turnover_cnt+1)] = color
-                        place_check = True
-                # the case of no color
-                else:
-                    break
+        if rows[row_num][column_num] == 0:
+            for vector in vectors:
+                turnover = []
+                for cnt in range(7):
+                    # the case of the other color
+                    if rows[row_num + vector[0] * (cnt+1)][column_num + vector[1] * (cnt+1)] == other_color:
+                        turnover.append(cnt)
+                    # the case of the color
+                    elif rows[row_num + vector[0] * (cnt+1)][column_num + vector[1] * (cnt+1)] == color and not cnt == 0:
+                        if turnover != []:
+                            for turnover_cnt in turnover:
+                                rows[row_num + vector[0] * (turnover_cnt+1)][column_num + vector[1] * (turnover_cnt+1)] = color
+                            place_check = True
+                    # the case of no color
+                    else:
+                        break
         if place_check:
             rows[row_num][column_num] = color
             print('置くことができました')
