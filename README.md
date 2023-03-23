@@ -1,4 +1,6 @@
 # Othello
 
-https://user-images.githubusercontent.com/105929246/227121458-05685ec5-7849-42c3-99d4-fdd9252fd7df.mov
+
+
+https://user-images.githubusercontent.com/105929246/227167992-5f97aea2-b4e5-4c49-bae5-36d9529b0b0e.mov
 
